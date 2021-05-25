@@ -29,7 +29,7 @@ export function Sidebar() {
             </Link>
           </Stack>
         </Box>
-
+        <Divider my="6" borderColor="gray.700"></Divider>
         <Box>
           <Text fontWeight="bold" color="gray.400" fontSize="sm">
             AUTOMAÇÃO

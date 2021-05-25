@@ -1,5 +1,6 @@
 import { Flex, SimpleGrid, Box, Text, theme } from "@chakra-ui/react";
 import dyanamic from 'next/dynamic'
+import { ApexOptions } from "apexcharts";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
 
@@ -7,7 +8,7 @@ const Chart = dyanamic(() => import('react-apexcharts'), {
   ssr: false,
 }) 
 
-const options ={
+const options: ApexOptions  ={
   chart: {
     toolbar: {
       show: false,
