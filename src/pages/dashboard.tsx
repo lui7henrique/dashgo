@@ -42,7 +42,11 @@ const options: ApexOptions  ={
       '2021-11-21T00:00:00:00.000Z',
       '2021-11-22T00:00:00:00.000Z',
       '2021-11-23T00:00:00:00.000Z',
-      '2021-11-24T00:00:00:00.000Z'
+      '2021-11-24T00:00:00:00.000Z',
+      '2021-11-25T00:00:00:00.000Z',
+      '2021-11-26T00:00:00:00.000Z',
+      '2021-11-27T00:00:00:00.000Z',
+      '2021-11-28T00:00:00:00.000Z'
     ],
   },
   fill: {
@@ -57,7 +61,7 @@ const options: ApexOptions  ={
 }
 
 const series = [
-  { name: 'series1', data: [18, 30, 28, 48, 19, 70, 50]}
+  { name: 'series1', data: [18, 30, 28, 48, 19, 70, 50, 10, 15, 28, 30]}
 ]
 
 export default function Dashboard() {
@@ -70,7 +74,7 @@ export default function Dashboard() {
 
         <SimpleGrid flex="1" gap="4" minChildWidth="320px" algin="flex-start">
          <Box
-            p="8"
+            p={["4", "8"]}
             bg="gray.800"
             borderRadius={8}
             pb="4"
@@ -79,7 +83,7 @@ export default function Dashboard() {
             <Chart options={options} series={series} type="area" eight={160}></Chart>
           </Box>
          <Box
-            p="8"
+            p={["4", "8"]}
             bg="gray.800"
             borderRadius={8}
             pb="4"

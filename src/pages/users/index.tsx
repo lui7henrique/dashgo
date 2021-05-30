@@ -12,13 +12,20 @@ import {
   Checkbox,
   Tbody,
   Text,
+  Badge,
+  useBreakpointValue,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 
 export default function UserList() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <Box>
       <Header />
@@ -29,31 +36,32 @@ export default function UserList() {
             <Heading size="md" fontWeight="bold" color="gray.400">
               Usuários
             </Heading>
-            <Button
-              as="a"
-              size="sm"
-              fontSize="sm"
-              colorScheme="pink"
-              leftIcon={<Icon as={RiAddLine} fontSize="20"/>}
-            >
-              Criar novo
-            </Button>
+            <Link href="/users/create" passHref>
+              <Button
+                as="a"
+                size="sm"
+                fontSize="sm"
+                colorScheme="pink"
+                leftIcon={<Icon as={RiAddLine} fontSize="20" />}
+              >
+                Criar novo
+              </Button>
+            </Link>
           </Flex>
           <Table colorScheme="whiteAlpha">
             <Thead>
               <Tr>
-                <Th px="6" color="gray.300" w="8">
+                <Th px={["4", "4", "6"]} color="gray.300" w="8">
                   <Checkbox colorScheme="pink"></Checkbox>
                 </Th>
                 <Th>Usuário</Th>
-                <Th>Data de cadastro</Th>
+                {isWideVersion && <Th>Data de cadastro</Th>}
                 <Th>Cargo</Th>
-                <Th></Th>
               </Tr>
             </Thead>
             <Tbody>
               <Tr>
-                <Td px="6">
+                <Td px={["4", "4", "6"]}>
                   <Checkbox colorScheme="pink"></Checkbox>
                 </Td>
                 <Td>
@@ -64,29 +72,21 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                <Td>18 de Abril, 2021</Td>
-                <Td>Desenvolvedor</Td>
-                <Td w="8" align="right">
-                  <Button
-                    as="a"
-                    size="sm"
-                    fontSize="sm"
-                    colorScheme="pink"
-                    variant="ghost"
-                    color="gray.500"
-                    _hover={{
-                      color: 'white',
-                      bgColor: 'pink.500'
-                    }}
-                    leftIcon={<Icon as={RiPencilLine} fontSize="15"/>}
+                {isWideVersion && <Td>18 de Abril, 2021</Td>}
+                <Td>
+                  <Badge
+                    bg="pink.500"
+                    color="gray.100"
+                    p="2.5"
+                    borderRadius="sm"
                   >
-                    Editar
-                  </Button>
+                    Desenvolvedor
+                  </Badge>
                 </Td>
               </Tr>
             </Tbody>
           </Table>
-          <Pagination/>
+          <Pagination />
         </Box>
       </Flex>
     </Box>
