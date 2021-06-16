@@ -8,7 +8,7 @@ export function Profile({ showProfileData = true }: ProfileProps) {
     <Flex align="center">
       {showProfileData && (
         <Box mr="4" textAlign="right">
-          <Text>Luiz Henrique Delfino</Text>
+          <Text>Luiz Henrique</Text>
           <Text color="gray.300" fontSize="small">
             7henrique18@gmail.com.br
           </Text>
